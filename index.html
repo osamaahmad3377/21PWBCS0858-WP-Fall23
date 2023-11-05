@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        
+    }
+    .con{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        border: 1px  solid black;
+       
+        margin-top: 0%;
+        
+    }
+ 
+    .l{
+        
+        
+        background-color: rgba(147, 147, 147, 0.266);
+        width: 31vw;
+        height: 45vh;
+        
+        
+    }
+    .f{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    h1{
+        text-align: center;
+    }
+    .butt{
+        background-color: rgb(18, 18, 18); 
+        color: white; 
+        width: 50%;
+    }
+    .butt:hover{
+        background-color: white;
+        color: black;
+        transition: 1s;
+    }
+    @media only screen and (max-width: 700px) {
+        .con{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        border: 1px  solid black;
+        width: 99vw;
+        margin-top: 0%;
+        
+    }
+    .l{
+        
+        
+        background-color: rgba(147, 147, 147, 0.266);
+        width: 90vw;
+        margin-top: 10%;
+        
+        
+        
+    }
+    }
+</style>
+<script>
+      let isb=[9900,1122,5566];
+      let title=["hacking","basic programming","networking"];
+    function fun(){
+      
+        let author=["osama ahamd","azaan","umair"];
+        let v=false;
+        let x=document.getElementById('isbn').value;
+        let y=document.getElementById('title').value;
+        
+    // document.getElementById("mess").innerHTML=x;
+     for(let i=0;i<isb.length;i++){
+           if(x==isb[i]&&y==title[i]){
+               document.getElementById("mess").innerHTML="Exist";
+             v=false;
+             break;
+             
+           }
+           else{
+            v=true;
+           }
+          
+       }
+       if(v==true){
+        isb.push(x);
+        title.push(y);
+        document.getElementById("mess").innerHTML="Book Added";
+        
+        document.getElementById('ii').innerHTML="title \n "+x+"isbn \n "+y;
+       }
+    }
+    function search(){
+        let l=document.getElementById("s").value;
+        switch(l){
+            case "hacking":
+                document.getElementById("sb").innerHTML="TITLE: hacking Author:Umair ISBN:9900";
+                break;
+                case "basic programming":
+                document.getElementById("sb").innerHTML="TITLE: basic programming Author:osama_ahmad ISBN:1122";
+                break;
+                case "networking":
+                document.getElementById("sb").innerHTML="TITLE: ntworking Author:Azaan ISBN:5566";
+                break;
+
+        }
+    }
+</script>
+<body>
+    
+        <div style="width: 99vw; background-color: rgba(0, 0, 0, 0.857); color: white;">
+            <h1>OLMS</h1>
+        </div>
+
+        <div class="con">
+            <div class="l" style="text-align: center;">
+                <h3 style="text-align: center; background-color: black; color: white;">BOOK LIST</h3>
+                <ol>
+                    <li>
+                        <p>
+                            <b>hacking:</b>
+                            by umair <br>
+                            isbn: 9900
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <b>
+                           basic programming
+                        </b>
+                         by osama ahamd <br>
+                         isbn: 1122
+                        </p>
+                        
+
+                    </li>
+                    <li>
+                        <p>
+                            <b>
+                           networking
+                        </b>
+                         by azaan <br>
+                         isbn: 5566
+                        </p>
+                        
+
+                    </li>
+                    <li> <p> <b>new book added :</b> </p>
+                        <p id="ii"></p>
+
+                    </li>
+                    
+                </ol>
+
+            </div>
+            <div class="l" style="">
+
+                <h3 style="text-align: center; background-color: black; color: white;">ADD NEW BOOK </h3>
+                <form action="" class="f">
+                    <label for="title">Title</label>
+                <input type="text" id="title" placeholder="title" > 
+                <label for="aut">Author</label>
+                <input type="text" placeholder="author" id="aut"> 
+                <label for="isbn">Isbn</label>
+                <input type="number" id="isbn" placeholder="ISBN" > 
+                <p id="mess" style="text-align: center;"></p>
+                <button type="button" onclick="fun()" class="butt" >ADD BOOK</button>
+                </form>
+            
+
+            </div>
+            <div class="l">
+                
+                <h3 style="text-align: center; background-color: black; color: white;" >SEARCH FOR BOOK</h3> 
+                <form action="" class="f">
+                    <label for="s">Book Name</label>
+                    <input type="text" name="" id="s" placeholder="input book name">
+                <p id="sb"></p>
+                <button type="button" class="butt" onclick="search()" >Search</button>
+                </form>
+                
+                
+                
+            </div>
+        </div>
+
+    
+    
+</body>
+</html>
